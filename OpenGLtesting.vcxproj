@@ -83,6 +83,10 @@
     <None Include="TexturedFragmentShader.glsl" />
     <None Include="VertexShader.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\Ian.PNG" />
+    <Image Include="textures\rainbow.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

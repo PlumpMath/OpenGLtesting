@@ -201,18 +201,18 @@ int main()
 
 	//creating vertices
 	Vertex* myShape = new Vertex[3];
-	myShape[0].fPositions[0] = 510.0f;
-	myShape[0].fPositions[1] = 370.0f;
+	myShape[0].fPositions[0] = 520.0f;
+	myShape[0].fPositions[1] = 380.0f;
 	myShape[1].fPositions[0] = 500.0f;
 	myShape[1].fPositions[1] = 340.0f;
-	myShape[2].fPositions[0] = 520.0f;
+	myShape[2].fPositions[0] = 540.0f;
 	myShape[2].fPositions[1] = 340.0f;
 	for (int i = 0; i < 3; i++)
 	{
 		myShape[i].fPositions[2] = 0.0f;
 		myShape[i].fPositions[3] = 1.0f;
-		myShape[i].fColours[0] = 0.0f;
-		myShape[i].fColours[1] = 0.0f;
+		myShape[i].fColours[0] = 1.0f;
+		myShape[i].fColours[1] = 1.0f;
 		myShape[i].fColours[2] = 1.0f;
 		myShape[i].fColours[3] = 1.0f;
 	}
@@ -266,11 +266,14 @@ int main()
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
+	int width = 64, height = 64, bpp = 4;
+	GLuint uiTextureId = loadTexture("ian.png", width, height, bpp);
+
 	//create shader program
-	GLuint uiProgramFlat = CreateProgram("VertexShader.glsl", "FlatFragmentShader.glsl");
+	GLuint uiProgramTextured = CreateProgram("VertexShader.glsl", "TexturedFragmentShader.glsl");
 
 	//find the position of the matrix variable in the shader so we can send info there later
-	GLuint MatrixIDFlat = glGetUniformLocation(uiProgramFlat, "MVP");
+	GLuint MatrixIDFlat = glGetUniformLocation(uiProgramTextured, "MVP");
 
 	//set up the mapping of the screen to pixel co-ordinates. Try changing these values to see what happens.
 	float *orthographicProjection = getOrtho(0, 1024, 0, 720, 0, 100);
@@ -279,12 +282,80 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		Update();
+
+		if (Keys.IsDown(VK_UP))
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				myShape[i].fPositions[1] += .1f;
+			}
+			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
+			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+			//copy data to graphics card
+			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+			//unmap and unbind buffer
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		}
+		if (Keys.IsDown(VK_DOWN))
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				myShape[i].fPositions[1] -= .1f;
+			}
+			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
+			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+			//copy data to graphics card
+			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+			//unmap and unbind buffer
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		}
+		if (Keys.IsDown(VK_LEFT))
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				myShape[i].fPositions[0] -= .1f;
+			}
+			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
+			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+			//copy data to graphics card
+			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+			//unmap and unbind buffer
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		}
+		if (Keys.IsDown(VK_RIGHT))
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				myShape[i].fPositions[0] += .1f;
+			}
+			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
+			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+			//copy data to graphics card
+			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+			//unmap and unbind buffer
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		}
+
+
 		//draw code goes here
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		//bind Texture
+		glBindTexture(GL_TEXTURE_2D, uiTextureId);
+		glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, uiIBO);
+		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 4));
+		//now we have UVs to worry about, we need to send that info to the graphics card too
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 8));
+
 		//enable shaders
-		glUseProgram(uiProgramFlat);
+		glUseProgram(uiProgramTextured);
 
 		glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, uiIBO);
@@ -294,6 +365,7 @@ int main()
 		//enable the vertex array states
 		glEnableVertexAttribArray(0);
 		glEnableVertexAttribArray(1);
+		glEnableVertexAttribArray(2);
 
 		/*Since the data is in the same array, we need to specify the gap between
 		vertices (A whole Vertex structure instance) and the offset of the data
@@ -308,6 +380,7 @@ int main()
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindTexture(GL_TEXTURE_2D, 0);
 
 		//swap front and back buffers
 		glfwSwapBuffers(window);
