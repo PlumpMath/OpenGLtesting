@@ -77,6 +77,7 @@
   <ItemGroup>
     <ClInclude Include="include\KeyStater.h" />
     <ClInclude Include="libs\glew-1.11.0\include\GL\glew.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FlatFragmentShader.glsl" />
