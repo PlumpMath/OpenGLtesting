@@ -1,3 +1,25 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+#include <GL\glew.h>
+//#include <GL\wglew.h>
+
+#include "KeyStater.h"
+
+#include <glm/fwd.hpp>
+#include <glm/glm.hpp>
+
+#include <SOIL.h>
+
+#include <iostream>
+
+#include <GLFW\glfw3.h>
+#include <vector>
+#include <string>
+#include <fstream>
+#include "BasicSprite.h"
+
+
 GLuint CreateShader(GLenum a_eShaderType, const char *a_strShaderFile)
 {
 	std::string strShaderCode;
@@ -119,8 +141,8 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 	}
 }
 
-
-
 static int windowWidth = 1024, windowHeight = 720;
-void Update();
+void Load(), Update();
 KeyStater Keys;
+
+#endif

@@ -1,19 +1,3 @@
-#include <GL\glew.h>
-//#include <GL\wglew.h>
-
-#include "KeyStater.h"
-
-#include <glm/fwd.hpp>
-#include <glm/glm.hpp>
-
-#include <SOIL.h>
-
-#include <iostream>
-
-#include <GLFW\glfw3.h>
-#include <vector>
-#include <string>
-#include <fstream>
 #include "Utils.h"
 
 int main()
@@ -44,6 +28,8 @@ int main()
 		return -1;
 	}
 
+	Load();
+
 
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window))
@@ -54,7 +40,7 @@ int main()
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-
+		//Draw calls here
 
 
 		//swap front and back buffers
@@ -68,6 +54,11 @@ int main()
 
 	glfwTerminate();
 	return 0;
+}
+
+void Load()
+{
+	BasicSprite Ian;
 }
 
 void Update()
