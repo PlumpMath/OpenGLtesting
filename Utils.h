@@ -142,7 +142,7 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 }
 
 static int windowWidth = 1024, windowHeight = 720;
-void Load(), Update();
+void Load(), Update(), Draw();
 KeyStater Keys;
 
 #endif

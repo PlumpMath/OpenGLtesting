@@ -33,14 +33,11 @@ public:
 	QuadVert();
 	~QuadVert();
 	GLuint vbo;
+	GLuint vao;
 	GLuint vertexShader;
 	GLuint fragmentShader;
 	GLuint shaderProgram;
-	float x[4];
-	float y[4];
-	void set(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3);
-
-	float *verts();
+	float vertices[8];
 };
 
 #endif

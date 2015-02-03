@@ -3,33 +3,50 @@
 
 QuadVert::QuadVert()
 {
+	vertices[0] = -0.5f;
+	vertices[1] = 0.5f;
+	vertices[2] = -0.5f;
+	vertices[3] = -0.5f;
+	vertices[4] = 0.5f;
+	vertices[5] = -0.5f;
+	vertices[6] = 0.5f;
+	vertices[7] = 0.5f;
+
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
+	vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(vertexShader, 1, &vertexSource, NULL);
+	glCompileShader(vertexShader);
+
+	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+	glCompileShader(vertexShader);
+
+	shaderProgram = glCreateProgram();
+	glAttachShader(shaderProgram, vertexShader);
+	glAttachShader(shaderProgram, fragmentShader);
+
+	glBindFragDataLocation(shaderProgram, 0, "outColor");
+
+	glLinkProgram(shaderProgram);
+	glUseProgram(shaderProgram);
+
+	GLint posAttrib = glGetAttribLocation(shaderProgram, "position");
+
+	glVertexAttribPointer(posAttrib, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+	glEnableVertexAttribArray(posAttrib);
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
 }
 
 
 QuadVert::~QuadVert()
 {
 }
-
-void QuadVert::set(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3)
-{
-	x[0] = x0;
-	y[0] = y0;
-	x[1] = x1;
-	y[1] = y1;
-	x[2] = x2;
-	y[2] = y2;
-	x[3] = x3;
-	y[3] = y3;
-}
-
-float *QuadVert::verts()
-{
-	float positions[8] = {
-		x[0], y[0],
-		x[1], y[1],
-		x[2], y[2],
-		x[3], y[3],
-	};
-	return positions;
-}
-
