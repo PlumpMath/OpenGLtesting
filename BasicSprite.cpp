@@ -1,8 +1,14 @@
 #include "BasicSprite.h"
 
 
+BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp)
+{
+	QV.Initialize(x, y, texture, width, height, bpp);
+}
+
 BasicSprite::BasicSprite()
 {
+	QV.Initialize(500, 500, "ian.png", 32, 32, 4);
 }
 
 
@@ -16,8 +22,10 @@ void BasicSprite::Draw()
 	glBindTexture(GL_TEXTURE_2D, QV.uiTextureId);
 	glBindBuffer(GL_ARRAY_BUFFER, QV.uiVBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, QV.uiIBO);
+
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 4));
+
 	//now we have UVs to worry about, we need to send that info to the graphics card too
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 8));
 
@@ -43,7 +51,7 @@ void BasicSprite::Draw()
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 4));
 
 	//draw to the screen
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_BYTE, NULL);
+	glDrawArrays(GL_QUADS, 0, 4);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

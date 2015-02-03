@@ -1,20 +1,4 @@
-#include <GL\glew.h>
-#include <GL\wglew.h>
-
 #include "KeyStater.h"
-
-#include <glm/fwd.hpp>
-#include <glm/glm.hpp>
-
-#include <SOIL.h>
-
-#include <iostream>
-
-#include <GLFW\glfw3.h>
-#include <vector>
-#include <string>
-#include <fstream>
-
 #include "BasicSprite.h"
 
 #define WINDOW_WIDTH 1024
@@ -41,12 +25,13 @@ int main()
 
 	//create a windowed mode window and it's OpenGL context
 	GLFWwindow* window;
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, ":ian: :honkman:", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
 		return -1;
 	}
+
 
 	//make the window's context current
 	glfwMakeContextCurrent(window);
@@ -59,6 +44,7 @@ int main()
 	}
 
 	BasicSprite Ian;
+	BasicSprite Rainbow(200, 200, "rainbow.png", 64, 64, 4);
 
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window))
@@ -130,7 +116,7 @@ int main()
 
 		//DRAW THINGS HERE
 		Ian.Draw();
-
+		Rainbow.Draw();
 		//swap front and back buffers
 		glfwSwapBuffers(window);
 

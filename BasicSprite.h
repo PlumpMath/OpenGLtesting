@@ -7,6 +7,7 @@ class BasicSprite
 {
 public:
 	QuadVert QV;
+	BasicSprite(float, float, char*, int, int, int);
 	BasicSprite();
 	~BasicSprite();
 	void Draw();

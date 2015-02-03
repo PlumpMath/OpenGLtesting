@@ -3,13 +3,9 @@
 
 #include <GL\glew.h>
 #include <GL\wglew.h>
-
-
 #include <glm/fwd.hpp>
 #include <glm/glm.hpp>
-
 #include <SOIL.h>
-
 #include <iostream>
 #include <GLFW\glfw3.h>
 #include <vector>
@@ -170,8 +166,9 @@ float* getOrtho(float left, float right, float bottom, float top, float a_fNear,
 }
 
 public:
-	int width, height, bpp;
 	GLuint uiTextureId;
+
+	void QuadVert::Initialize(float, float, char*, int, int, int);
 
 	//create shader program
 	GLuint uiProgramTextured;
