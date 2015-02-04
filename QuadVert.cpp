@@ -78,6 +78,9 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	uiProgramTextured = CreateProgram("VertexShader.glsl", "TexturedFragmentShader.glsl");
 	MatrixIDFlat = glGetUniformLocation(uiProgramTextured, "MVP");
 	orthographicProjection = getOrtho(0, 1024, 0, 720, 0, 100);
+
+
+	
 }
 
 

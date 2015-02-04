@@ -1,6 +1,6 @@
 #include "KeyStater.h"
 #include "BasicSprite.h"
-
+#include "AnimSprite.h"
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 720
 
@@ -22,10 +22,9 @@ int main()
 	{
 		return -1;
 	}
-
 	//create a windowed mode window and it's OpenGL context
 	GLFWwindow* window;
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, ":ian: :honkman:", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, ":ian:   :revolver: :honkman:", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -42,10 +41,12 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
-
+	char* char_a = "fuckinshitm8y";
+	char char_b = char_a[13];
+	int int_a = (int)char_b; 
 	BasicSprite Ian;
 	BasicSprite Rainbow(200, 200, "rainbow.png", 64, 64, 4);
-
+	glfwSetTime(0);
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window))
 	{
@@ -53,7 +54,7 @@ int main()
 		/*
 		if (Keys.IsDown(VK_UP))
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				myShape[i].fPositions[1] += .1f;
 			}
@@ -67,7 +68,7 @@ int main()
 		}
 		if (Keys.IsDown(VK_DOWN))
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				myShape[i].fPositions[1] -= .1f;
 			}
@@ -81,7 +82,7 @@ int main()
 		}
 		if (Keys.IsDown(VK_LEFT))
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				myShape[i].fPositions[0] -= .1f;
 			}
@@ -95,7 +96,7 @@ int main()
 		}
 		if (Keys.IsDown(VK_RIGHT))
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				myShape[i].fPositions[0] += .1f;
 			}
@@ -124,6 +125,7 @@ int main()
 		glfwPollEvents();
 		if (Keys.IsPressed(VK_ESCAPE))
 			glfwSetWindowShouldClose(window, GL_TRUE);
+		glfwSetTime(0);
 	}
 
 

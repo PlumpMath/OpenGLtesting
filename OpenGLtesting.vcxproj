@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\Simple OpenGL Image Library\src;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glfw-3.0.4.bin.WIN32\include;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glew-1.11.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\Simple OpenGL Image Library\projects\VC9\Debug;$(SolutionDir)libs\glfw-3.0.4.bin.WIN43\lib-msvc110;$(SolutionDir)libs\glew-1.11.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\tinyxml2-master\tinyxml2\bin\Win32-Debug-Dll;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\Simple OpenGL Image Library\src;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glfw-3.0.4.bin.WIN32\include;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glew-1.11.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\tinyxml2-master\tinyxml2\bin\Win32-Debug-Dll;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\Simple OpenGL Image Library\projects\VC9\Debug;$(SolutionDir)libs\glfw-3.0.4.bin.WIN43\lib-msvc110;$(SolutionDir)libs\glew-1.11.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -53,7 +53,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glew-1.11.0\lib\Release\Win32;C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glfw-3.0.4.bin.WIN32\lib-msvc110;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SOIL.lib;glew32s.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SOIL.lib;glew32s.lib;opengl32.lib;glfw3.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -71,13 +71,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimSprite.cpp" />
     <ClCompile Include="BasicSprite.cpp" />
+    <ClCompile Include="FontDraw.cpp" />
     <ClCompile Include="KeyStater.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QuadVert.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimSprite.h" />
     <ClInclude Include="BasicSprite.h" />
+    <ClInclude Include="FontDraw.h" />
     <ClInclude Include="include\KeyStater.h" />
     <ClInclude Include="libs\glew-1.11.0\include\GL\glew.h" />
     <ClInclude Include="QuadVert.h" />
