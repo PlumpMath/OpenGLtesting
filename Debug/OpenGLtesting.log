@@ -1,21 +1,9 @@
-﻿Build started 2/4/2015 12:58:46 PM.
+﻿Build started 2/9/2015 5:59:24 PM.
      1>Project "C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\OpenGLtesting.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\textures /IC:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glm /IC:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\tyler.miller\desktop\tutorials\opengltesting\quadvert.h(155): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\tyler.miller\desktop\tutorials\opengltesting\quadvert.h(157): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\tyler.miller\desktop\tutorials\opengltesting\quadvert.h(159): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\Debug\OpenGLtesting.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glew-1.11.0\lib\Release\Win32" /LIBPATH:"C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\libs\glfw-3.0.4.bin.WIN32\lib-msvc110" SOIL.lib glew32s.lib opengl32.lib glfw3.lib tinyxml2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\Debug\OpenGLtesting.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\Debug\OpenGLtesting.lib" /MACHINE:X86 Debug\AnimSprite.obj
-         Debug\BasicSprite.obj
-         Debug\FontDraw.obj
-         Debug\KeyStater.obj
-         Debug\main.obj
-         Debug\QuadVert.obj
+     1>Link:
          OpenGLtesting.vcxproj -> C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\Debug\OpenGLtesting.exe
      1>Done Building Project "C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\OpenGLtesting.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.57
+Time Elapsed 00:00:00.04

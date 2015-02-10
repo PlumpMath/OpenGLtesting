@@ -88,10 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FlatFragmentShader.glsl" />
+    <None Include="resources\defaultfont.fnt" />
     <None Include="TexturedFragmentShader.glsl" />
     <None Include="VertexShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\defaultfont.png" />
     <Image Include="textures\Ian.PNG" />
     <Image Include="textures\rainbow.png" />
   </ItemGroup>

@@ -41,11 +41,15 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
+
 	char* char_a = "fuckinshitm8y";
 	char char_b = char_a[13];
 	int int_a = (int)char_b; 
 	BasicSprite Ian;
-	BasicSprite Rainbow(200, 200, "rainbow.png", 64, 64, 4);
+	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4);
+	BasicSprite FontMapTest(0, 0, "defaultfont.png", 256, 256, 3);
+
+
 	glfwSetTime(0);
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window))
@@ -118,6 +122,7 @@ int main()
 		//DRAW THINGS HERE
 		Ian.Draw();
 		Rainbow.Draw();
+		FontMapTest.Draw();
 		//swap front and back buffers
 		glfwSwapBuffers(window);
 

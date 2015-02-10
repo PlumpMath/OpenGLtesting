@@ -64,12 +64,18 @@
     <None Include="VertexShader.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resources\defaultfont.fnt">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\Ian.PNG">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="textures\rainbow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\defaultfont.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
