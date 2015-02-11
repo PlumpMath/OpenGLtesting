@@ -3,14 +3,24 @@
 
 BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp)
 {
+	init = true;
 	QV.Initialize(x, y, texture, width, height, bpp);
 }
 
 BasicSprite::BasicSprite()
 {
-	QV.Initialize(500, 500, "ian.png", 32, 32, 4);
 }
 
+void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp)
+{
+	init = true;
+	QV.Initialize(x, y, texture, width, height, bpp);
+}
+
+void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
+{
+
+}
 
 BasicSprite::~BasicSprite()
 {

@@ -1,4 +1,4 @@
-﻿Build started 2/9/2015 5:59:24 PM.
+﻿Build started 2/11/2015 1:16:34 PM.
      1>Project "C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\OpenGLtesting.vcxproj" on node 2 (Build target(s)).
      1>Link:
          OpenGLtesting.vcxproj -> C:\Users\tyler.miller\Desktop\Tutorials\OpenGLtesting\Debug\OpenGLtesting.exe
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.21

@@ -4,9 +4,10 @@
 #include <glm/fwd.hpp>
 #include <glm/glm.hpp>
 #include "BasicSprite.h"
+#include "libs\tinyxml2-master\tinyxml2.h"
+
 struct CharVec
 {
-	int charid;
 	int x;
 	int y;
 	int width;
@@ -18,10 +19,10 @@ struct CharVec
 class FontDraw
 {
 private:
-	CharVec charload[95];
+	CharVec charload[255];
 public:
-
-	FontDraw();
+	BasicSprite FontSprites;
+	FontDraw(char *todraw, float x, float y);
 	~FontDraw();
 };
 

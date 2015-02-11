@@ -7,9 +7,12 @@ class BasicSprite
 {
 public:
 	QuadVert QV;
-	BasicSprite(float x, float y, char* texture, int width, int height, int bpp);
-	void MoveSprite(bool);
+	bool init = false;
 	BasicSprite();
+	BasicSprite(float x, float y, char* texture, int width, int height, int bpp);
+	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
+	void Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4]);
+	void MoveSprite(bool);
 	~BasicSprite();
 	void Draw();
 };

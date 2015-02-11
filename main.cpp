@@ -45,7 +45,7 @@ int main()
 	char* char_a = "fuckinshitm8y";
 	char char_b = char_a[13];
 	int int_a = (int)char_b; 
-	BasicSprite Ian;
+	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 4);
 	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4);
 	BasicSprite FontMapTest(0, 0, "defaultfont.png", 256, 256, 3);
 
