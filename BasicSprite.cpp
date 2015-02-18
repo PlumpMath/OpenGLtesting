@@ -9,17 +9,25 @@ BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height,
 
 BasicSprite::BasicSprite()
 {
+
 }
 
-void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp)
+BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
 {
 	init = true;
-	QV.Initialize(x, y, texture, width, height, bpp);
+	QV.Initialize(x, y, texture, width, height, bpp, UV);
 }
+
+//void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp)
+//{
+//	init = true;
+//	QV.Initialize(x, y, texture, width, height, bpp);
+//}
 
 void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
 {
-
+	init = true;
+	QV.Initialize(x, y, texture, width, height, bpp, UV);
 }
 
 BasicSprite::~BasicSprite()

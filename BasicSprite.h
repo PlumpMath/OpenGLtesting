@@ -10,7 +10,8 @@ public:
 	bool init = false;
 	BasicSprite();
 	BasicSprite(float x, float y, char* texture, int width, int height, int bpp);
-	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
+	BasicSprite(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4]);
+	//void Initialize(float x, float y, char* texture, int width, int height, int bpp);
 	void Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4]);
 	void MoveSprite(bool);
 	~BasicSprite();

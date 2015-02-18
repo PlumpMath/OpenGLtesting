@@ -43,7 +43,7 @@ public:
 	GLuint uiTextureId;
 
 	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
-	void Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4]);
+	void Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UVs[4]);
 
 	//create shader program
 	GLuint uiProgramTextured;
