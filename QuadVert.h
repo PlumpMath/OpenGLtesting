@@ -23,6 +23,8 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 
 float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar);
 
+float* getOGL(float ax, float ay, float aw, float ah);
+
 struct fUVs
 {
 	float UVx;

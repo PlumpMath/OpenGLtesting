@@ -121,6 +121,18 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 	}
 }
 
+float* getOGL(float ax, float ay, float aw, float ah)
+{
+	//Takes the x, y, width, and height of desired section of the image and returns the correct UV
+	float * rf = new float[4];
+
+	rf[0] = ax / 256;			//X1
+	rf[1] = ay / 256;			//Y1
+	rf[2] = (ax + aw) / 256;	//X2
+	rf[3] = (ay + ah) / 256;	//Y2
+	return rf;
+}
+
 float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar)
 {
 	//to correspond with mat4 in the shader
@@ -168,14 +180,21 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 		myShape[i].fColours[3] = 1.0f;
 	}
 	//set up the UVs
-	myShape[0].fUVs[0] = 1.0f;
-	myShape[0].fUVs[1] = 1.0f;
-	myShape[1].fUVs[0] = 1.0f;
-	myShape[1].fUVs[1] = 0.0f;
-	myShape[2].fUVs[0] = 0.0f;
-	myShape[2].fUVs[1] = 0.0f;
-	myShape[3].fUVs[0] = 0.0f;
-	myShape[3].fUVs[1] = 1.0f;
+	myShape[0].fUVs[0] = 1.0f;	//X2
+	myShape[0].fUVs[1] = 1.0f;	//Y2
+	//TOP LEFT
+
+	myShape[1].fUVs[0] = 1.0f;	//X2
+	myShape[1].fUVs[1] = 0.0f;	//Y1
+	//BOTTOM RIGHT
+
+	myShape[2].fUVs[0] = 0.0f;	//X1
+	myShape[2].fUVs[1] = 0.0f;	//Y1
+	//BOTTOM LEFT
+
+	myShape[3].fUVs[0] = 0.0f;	//X1
+	myShape[3].fUVs[1] = 1.0f;	//Y2
+	//TOP LEFT
 
 	glGenBuffers(1, &uiVBO);
 

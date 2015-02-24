@@ -1,11 +1,10 @@
 #include "KeyStater.h"
 #include "BasicSprite.h"
 #include "AnimSprite.h"
+#include "FontDraw.h"
+
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 720
-
-
-
 
 
 KeyStater Keys;
@@ -41,24 +40,24 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
-
-	char* char_a = "fuckinshitm8y";
-	char char_b = char_a[13];
-	int int_a = (int)char_b; 
-	fUVs IanUV[4];
-	IanUV[0].UVx = 0.75f;
-	IanUV[0].UVy = 0.75f;
-	IanUV[1].UVx = 0.75f;
-	IanUV[1].UVy = 0.7f;
-	IanUV[2].UVx = 0.8f;
-	IanUV[2].UVy = 0.7f;
-	IanUV[3].UVx = 0.65f;
-	IanUV[3].UVy = 0.75f;
-	BasicSprite Ian(100, 100, "defaultfont.png", 28, 72, 4, IanUV);
 	
-		
-	//BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4);
-	//BasicSprite FontMapTest(0, 0, "defaultfont.png", 256, 256, 3);
+	char* ab = "ab";
+	char* abc = "abc";
+	char* abcd = "abcd";
+	char* abcde = "abcde";
+
+	int t = strlen(ab);
+
+	int t1 = strlen(abc);
+	int t2 = strlen(abcd);
+	int t3 = strlen(abcde);
+
+
+
+	FontDraw simpleText("abc", 100, 500);
+
+	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4);
+	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
 
 
 	glfwSetTime(0);
@@ -131,9 +130,11 @@ int main()
 
 
 		//DRAW THINGS HERE
+		Rainbow.Draw();
 		Ian.Draw();
-		//Rainbow.Draw();
-		//FontMapTest.Draw();
+
+		simpleText.Draw();
+
 		//swap front and back buffers
 		glfwSwapBuffers(window);
 
@@ -145,7 +146,6 @@ int main()
 	}
 
 
-	glDeleteBuffers(1, &Ian.QV.uiIBO);
 
 	glfwTerminate();
 	return 0;

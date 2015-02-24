@@ -14,6 +14,8 @@ struct CharVec
 	int height;
 	int xoffset;
 	int yoffset;
+	void Zero();
+	void Set(int ax, int ay, int aw, int ah, int axo, int ayo);
 };
 
 class FontDraw
@@ -21,7 +23,13 @@ class FontDraw
 private:
 	CharVec charload[255];
 public:
-	BasicSprite FontSprites;
+	BasicSprite* FontSprites;
+	char* textToDraw;
+	float x, y;
+
+	void setDefault();
+	void Draw();
+
 	FontDraw(char *todraw, float x, float y);
 	~FontDraw();
 };
