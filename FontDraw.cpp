@@ -45,9 +45,19 @@ FontDraw::FontDraw(char *todraw, float ax, float ay)
 
 	setDefault();
 
-	FontSprites = new BasicSprite[strlen(todraw)];
+	FontSprites = new BasicSprite[strlen(textToDraw)];
+	
+	//OFFSETS STILL NEED TO BE ADDED
+	for (int i = 0; i < strlen(textToDraw); i++)
+	{
+		float tx = x;
+		for (int ii = i; ii > 0; ii--)
+		{
+			tx += charload[(int)textToDraw[ii - 1]].width;
+		}
 
-
+		FontSprites[i].Initialize(tx, y, "defaultfont.png", charload[(int)textToDraw[i]].width, charload[(int)textToDraw[i]].height, 3, getOGL(charload[(int)textToDraw[i]].x, charload[(int)textToDraw[i]].y, charload[(int)textToDraw[i]].width, charload[(int)textToDraw[i]].height));
+	}
 
 }
 

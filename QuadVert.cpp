@@ -126,10 +126,17 @@ float* getOGL(float ax, float ay, float aw, float ah)
 	//Takes the x, y, width, and height of desired section of the image and returns the correct UV
 	float * rf = new float[4];
 
-	rf[0] = ax / 256;			//X1
-	rf[1] = ay / 256;			//Y1
-	rf[2] = (ax + aw) / 256;	//X2
-	rf[3] = (ay + ah) / 256;	//Y2
+	rf[0] = ax / 256;					//X1
+	rf[3] = (256 - ay) / 256;			//Y1
+	rf[2] = (ax + aw) / 256;			//X2
+	rf[1] = ((256 - ay) - ah) / 256;	//Y2
+
+	/*
+	rf[0] = 0;		//X1
+	rf[1] = 0.88;	//Y1
+	rf[2] = 0.07;	//X2
+	rf[3] = 0.96;	//Y2
+	*/
 	return rf;
 }
 
@@ -158,6 +165,7 @@ QuadVert::QuadVert()
 {
 
 }
+
 void QuadVert::Initialize(float x, float y, char* texture, int width, int height, int bpp)
 {
 	myShape = new Vertex[4];
@@ -182,7 +190,7 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	//set up the UVs
 	myShape[0].fUVs[0] = 1.0f;	//X2
 	myShape[0].fUVs[1] = 1.0f;	//Y2
-	//TOP LEFT
+	//TOP RIGHT
 
 	myShape[1].fUVs[0] = 1.0f;	//X2
 	myShape[1].fUVs[1] = 0.0f;	//Y1
@@ -243,7 +251,7 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	
 }
 
-void QuadVert::Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
+void QuadVert::Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a)
 {
 	myShape = new Vertex[4];
 	myShape[0].fPositions[0] = x + width;
@@ -265,14 +273,21 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 		myShape[i].fColours[3] = 1.0f;
 	}
 	//set up the UVs
-	myShape[0].fUVs[0] = UV[0].UVx;
-	myShape[0].fUVs[1] = UV[0].UVy;
-	myShape[1].fUVs[0] = UV[1].UVx;
-	myShape[1].fUVs[1] = UV[1].UVy;
-	myShape[2].fUVs[0] = UV[2].UVx;
-	myShape[2].fUVs[1] = UV[2].UVy;
-	myShape[3].fUVs[0] = UV[3].UVx;
-	myShape[3].fUVs[1] = UV[3].UVy;
+	myShape[0].fUVs[0] = a[2];	//X2
+	myShape[0].fUVs[1] = a[3];	//Y2
+	//TOP RIGHT
+
+	myShape[1].fUVs[0] = a[2];	//X2
+	myShape[1].fUVs[1] = a[1];	//Y1
+	//BOTTOM RIGHT
+
+	myShape[2].fUVs[0] = a[0];	//X1
+	myShape[2].fUVs[1] = a[1];	//Y1
+	//BOTTOM LEFT
+
+	myShape[3].fUVs[0] = a[0];	//X1
+	myShape[3].fUVs[1] = a[3];	//Y2
+	//TOP LEFT
 
 	glGenBuffers(1, &uiVBO);
 

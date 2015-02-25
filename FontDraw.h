@@ -6,6 +6,8 @@
 #include "BasicSprite.h"
 #include "libs\tinyxml2-master\tinyxml2.h"
 
+
+//Base struct for holding individual font data
 struct CharVec
 {
 	int x;
@@ -18,6 +20,7 @@ struct CharVec
 	void Set(int ax, int ay, int aw, int ah, int axo, int ayo);
 };
 
+//class to draw the font
 class FontDraw
 {
 private:

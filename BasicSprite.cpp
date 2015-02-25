@@ -12,22 +12,16 @@ BasicSprite::BasicSprite()
 
 }
 
-BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
+BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp, float* a)
 {
 	init = true;
-	QV.Initialize(x, y, texture, width, height, bpp, UV);
+	QV.Initialize(x, y, texture, width, height, bpp, a);
 }
 
-//void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp)
-//{
-//	init = true;
-//	QV.Initialize(x, y, texture, width, height, bpp);
-//}
-
-void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp, fUVs UV[4])
+void BasicSprite::Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a)
 {
 	init = true;
-	QV.Initialize(x, y, texture, width, height, bpp, UV);
+	QV.Initialize(x, y, texture, width, height, bpp, a);
 }
 
 BasicSprite::~BasicSprite()
@@ -74,5 +68,9 @@ void BasicSprite::Draw()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void BasicSprite::MoveSprite(int b)
+{
 
 }

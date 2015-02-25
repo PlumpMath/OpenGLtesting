@@ -1,17 +1,11 @@
 #include "KeyStater.h"
 #include "BasicSprite.h"
-#include "AnimSprite.h"
 #include "FontDraw.h"
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 720
 
-
 KeyStater Keys;
-
-//declaring vertex struct
-
-
 
 int main()
 {
@@ -41,24 +35,24 @@ int main()
 		return -1;
 	}
 	
-	char* ab = "ab";
-	char* abc = "abc";
-	char* abcd = "abcd";
-	char* abcde = "abcde";
+	FontDraw thirdtext("abcba", 500, 300);
 
-	int t = strlen(ab);
+	float rb[4] =
+	{
+		.4, .4,
+		.45, .45
+	};
 
-	int t1 = strlen(abc);
-	int t2 = strlen(abcd);
-	int t3 = strlen(abcde);
-
+	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4, rb);
 
 
-	FontDraw simpleText("abc", 100, 500);
 
-	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4);
 	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
-
+	
+	glEnable(GL_BLEND);
+	glEnable(GL_ALPHA_TEST);
+	glAlphaFunc(GL_GREATER, .5);
+	glEnable(GL_ALPHA);
 
 	glfwSetTime(0);
 	//loop until the user closes the window
@@ -132,8 +126,7 @@ int main()
 		//DRAW THINGS HERE
 		Rainbow.Draw();
 		Ian.Draw();
-
-		simpleText.Draw();
+		thirdtext.Draw();
 
 		//swap front and back buffers
 		glfwSwapBuffers(window);
