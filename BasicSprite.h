@@ -3,6 +3,8 @@
 
 #include "QuadVert.h"
 
+//base sprite class
+//to be used in entities and such
 class BasicSprite
 {
 public:
