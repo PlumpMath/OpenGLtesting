@@ -70,7 +70,19 @@ void BasicSprite::Draw()
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void BasicSprite::MoveSprite(int b)
+void BasicSprite::MoveSprite(float ax, float ay)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		QV.myShape[i].fPositions[0] += ax;
+		QV.myShape[i].fPositions[1] += ay;
+	}
 
+	glBindBuffer(GL_ARRAY_BUFFER, QV.uiVBO);
+	GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	//copy data to graphics card
+	memcpy(vBuffer, QV.myShape, sizeof(Vertex)* 4);
+	//unmap and unbind buffer
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

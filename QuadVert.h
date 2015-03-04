@@ -25,11 +25,7 @@ float* getOrtho(float left, float right, float bottom, float top, float a_fNear,
 
 float* getOGL(float ax, float ay, float aw, float ah);
 
-struct fUVs
-{
-	float UVx;
-	float UVy;
-};
+float* getOGL(float ax, float ay, float aw, float ah, int iwidth, int iheight);
 
 struct Vertex
 {

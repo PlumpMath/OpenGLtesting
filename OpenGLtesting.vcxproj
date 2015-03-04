@@ -71,6 +71,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimSprite.cpp" />
     <ClCompile Include="BasicSprite.cpp" />
     <ClCompile Include="FontDraw.cpp" />
     <ClCompile Include="KeyStater.cpp" />
@@ -78,6 +79,7 @@
     <ClCompile Include="QuadVert.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimSprite.h" />
     <ClInclude Include="BasicSprite.h" />
     <ClInclude Include="FontDraw.h" />
     <ClInclude Include="include\KeyStater.h" />

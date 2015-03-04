@@ -1,6 +1,7 @@
 #include "KeyStater.h"
 #include "BasicSprite.h"
 #include "FontDraw.h"
+#include "AnimSprite.h"
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 720
@@ -45,7 +46,23 @@ int main()
 
 	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4, rb);
 
+	float _a[4] =
+	{
+		15, 20,
+		24, 9
+	};
+	float _b[4] =
+	{
+		40, 75,
+		9, 14
+	};
+	float _c[4] =
+	{
+		113, 27,
+		20, 20
+	};
 
+	AnimSprite animsprite(100, 100, "animtest.png", 30, 30, 4, _a, _b, _c, 224, 149);
 
 	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
 	
@@ -59,71 +76,32 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		Keys.Update();
-		/*
+		
 		if (Keys.IsDown(VK_UP))
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				myShape[i].fPositions[1] += .1f;
-			}
-			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
-			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-			//copy data to graphics card
-			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
-			//unmap and unbind buffer
-			glUnmapBuffer(GL_ARRAY_BUFFER);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			Ian.MoveSprite(0, 1);
 		}
 		if (Keys.IsDown(VK_DOWN))
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				myShape[i].fPositions[1] -= .1f;
-			}
-			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
-			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-			//copy data to graphics card
-			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
-			//unmap and unbind buffer
-			glUnmapBuffer(GL_ARRAY_BUFFER);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			Ian.MoveSprite(0, -1);
 		}
 		if (Keys.IsDown(VK_LEFT))
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				myShape[i].fPositions[0] -= .1f;
-			}
-			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
-			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-			//copy data to graphics card
-			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
-			//unmap and unbind buffer
-			glUnmapBuffer(GL_ARRAY_BUFFER);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			Ian.MoveSprite(-1, 0);
 		}
 		if (Keys.IsDown(VK_RIGHT))
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				myShape[i].fPositions[0] += .1f;
-			}
-			glBindBuffer(GL_ARRAY_BUFFER, uiVBO);
-			GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-			//copy data to graphics card
-			memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
-			//unmap and unbind buffer
-			glUnmapBuffer(GL_ARRAY_BUFFER);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			Ian.MoveSprite(1, 0);
 		}
-		*/
+		
 
 		//draw code starts here
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 
-		//DRAW THINGS HERE
+		//DRAW THING HERE
+		animsprite.Draw(glfwGetTime());
 		Rainbow.Draw();
 		Ian.Draw();
 		thirdtext.Draw();

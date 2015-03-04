@@ -15,7 +15,7 @@ public:
 	BasicSprite(float x, float y, char* texture, int width, int height, int bpp, float* a);
 	//void Initialize(float x, float y, char* texture, int width, int height, int bpp);
 	void Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a);
-	void MoveSprite(int b);
+	void MoveSprite(float ax, float ay);
 	~BasicSprite();
 	void Draw();
 };

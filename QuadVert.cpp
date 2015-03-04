@@ -121,6 +121,7 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 	}
 }
 
+//256 BY 256 ONLY
 float* getOGL(float ax, float ay, float aw, float ah)
 {
 	//Takes the x, y, width, and height of desired section of the image and returns the correct UV
@@ -131,12 +132,20 @@ float* getOGL(float ax, float ay, float aw, float ah)
 	rf[2] = (ax + aw) / 256;			//X2
 	rf[1] = ((256 - ay) - ah) / 256;	//Y2
 
-	/*
-	rf[0] = 0;		//X1
-	rf[1] = 0.88;	//Y1
-	rf[2] = 0.07;	//X2
-	rf[3] = 0.96;	//Y2
-	*/
+	return rf;
+}
+
+//UPPER LEFT CORNER OF SELECTION IN RELATION TO UPPER LEFT CORNER OF IMAGE, X, Y, W, H, IMAGE W, IMAGE H
+float* getOGL(float ax, float ay, float aw, float ah, int iw, int ih)
+{
+	//Takes the x, y, width, and height of desired section of the image and returns the correct UV
+	float * rf = new float[4];
+
+	rf[0] = ax / iw;					//X1
+	rf[3] = (ih - ay) / ih;			//Y1
+	rf[2] = (ax + aw) / iw;			//X2
+	rf[1] = ((ih - ay) - ah) / ih;	//Y2
+
 	return rf;
 }
 
