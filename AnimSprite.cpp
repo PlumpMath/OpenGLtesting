@@ -32,7 +32,7 @@ void AnimSprite::CutUV()
 void AnimSprite::Update(double time)
 {
 	delay += time;
-	if (delay > .5)
+	if (delay > .1)
 	{
 		delay = 0;
 		if (curFrame == 0)

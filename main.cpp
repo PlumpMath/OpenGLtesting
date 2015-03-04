@@ -106,6 +106,8 @@ int main()
 		Ian.Draw();
 		thirdtext.Draw();
 
+		glfwSetTime(0);
+
 		//swap front and back buffers
 		glfwSwapBuffers(window);
 
@@ -113,7 +115,6 @@ int main()
 		glfwPollEvents();
 		if (Keys.IsPressed(VK_ESCAPE))
 			glfwSetWindowShouldClose(window, GL_TRUE);
-		glfwSetTime(0);
 	}
 
 

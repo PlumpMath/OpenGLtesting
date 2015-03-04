@@ -142,9 +142,9 @@ float* getOGL(float ax, float ay, float aw, float ah, int iw, int ih)
 	float * rf = new float[4];
 
 	rf[0] = ax / iw;					//X1
-	rf[3] = (ih - ay) / ih;			//Y1
-	rf[2] = (ax + aw) / iw;			//X2
-	rf[1] = ((ih - ay) - ah) / ih;	//Y2
+	rf[3] = (ih - ay) / ih;				//Y1
+	rf[2] = (ax + aw) / iw;				//X2
+	rf[1] = ((ih - ay) - ah) / ih;		//Y2
 
 	return rf;
 }
