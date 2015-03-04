@@ -70,8 +70,10 @@ void BasicSprite::Draw()
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void BasicSprite::MoveSprite(float ax, float ay)
+void BasicSprite::MoveSprite(float ax, float ay, double time)
 {
+	ax *= time;
+	ay *= time;
 	for (int i = 0; i < 4; i++)
 	{
 		QV.myShape[i].fPositions[0] += ax;

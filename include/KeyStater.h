@@ -1,7 +1,8 @@
 #ifndef KEYSTATER_H
 #define KEYSTATER_H
 
-#include "Windows.H"
+#include <Windows.h>
+//#include <GLFW\glfw3.h>
 
 #define VK_0 0x30
 #define VK_1 0x31
@@ -43,6 +44,7 @@
 class KeyStater
 {
 private:
+	
 	BYTE curStates[258], oldStates[256];
 	bool showDebug = false;
 	HWND thiswindow = GetForegroundWindow();

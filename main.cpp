@@ -35,7 +35,9 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
-	
+
+
+	//creating text and sprites
 	FontDraw thirdtext("abcba", 500, 300);
 
 	float rb[4] =
@@ -66,32 +68,37 @@ int main()
 
 	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
 	
+	//enableing alpha channel
 	glEnable(GL_BLEND);
 	glEnable(GL_ALPHA_TEST);
 	glAlphaFunc(GL_GREATER, .5);
 	glEnable(GL_ALPHA);
 
+	//initializing time
 	glfwSetTime(0);
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window))
 	{
+		double deltaTime = glfwGetTime();
+		glfwSetTime(0);
+		//Updating key handler
 		Keys.Update();
 		
 		if (Keys.IsDown(VK_UP))
 		{
-			Ian.MoveSprite(0, 1);
+			Ian.MoveSprite(0, 300, deltaTime);
 		}
 		if (Keys.IsDown(VK_DOWN))
 		{
-			Ian.MoveSprite(0, -1);
+			Ian.MoveSprite(0, -300, deltaTime);
 		}
 		if (Keys.IsDown(VK_LEFT))
 		{
-			Ian.MoveSprite(-1, 0);
+			Ian.MoveSprite(-300, 0, deltaTime);
 		}
 		if (Keys.IsDown(VK_RIGHT))
 		{
-			Ian.MoveSprite(1, 0);
+			Ian.MoveSprite(300, 0, deltaTime);
 		}
 		
 
@@ -101,12 +108,10 @@ int main()
 
 
 		//DRAW THING HERE
-		animsprite.Draw(glfwGetTime());
+		animsprite.Draw(deltaTime);
 		Rainbow.Draw();
 		Ian.Draw();
 		thirdtext.Draw();
-
-		glfwSetTime(0);
 
 		//swap front and back buffers
 		glfwSwapBuffers(window);

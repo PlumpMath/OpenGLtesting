@@ -151,11 +151,7 @@ float* getOGL(float ax, float ay, float aw, float ah, int iw, int ih)
 
 float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar)
 {
-	//to correspond with mat4 in the shader
-	//ideally this function would be part of your matrix class
-	//however I wasn't willing to write your matrix class for you just to show you this
-	//so here we are in array format!
-	//add this to your matrix class as a challenge if you like!
+
 	float* toReturn = new float[12];
 	toReturn[0] = 2.0 / (right - left);;
 	toReturn[1] = toReturn[2] = toReturn[3] = toReturn[4] = 0;
