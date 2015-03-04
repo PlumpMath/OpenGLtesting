@@ -23,10 +23,13 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 
 float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar);
 
+//256 BY 256 ONLY, used by default for fontsheet
 float* getOGL(float ax, float ay, float aw, float ah);
 
+//UPPER LEFT CORNER OF SELECTION IN RELATION TO UPPER LEFT CORNER OF IMAGE, X, Y, W, H, IMAGE W, IMAGE H
 float* getOGL(float ax, float ay, float aw, float ah, int iwidth, int iheight);
 
+//vertex struct to hold position, color, uv data
 struct Vertex
 {
 	float fPositions[4];
@@ -39,20 +42,20 @@ struct QuadVert
 
 public:
 	GLuint uiTextureId;
-
-	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
-	void Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a);
-
-	//create shader program
-	GLuint uiProgramTextured;
-
-	//find the position of the matrix variable in the shader so we can send info there later
-	GLuint MatrixIDFlat;
-
 	float *orthographicProjection;
+	GLuint uiProgramTextured;
+	GLuint MatrixIDFlat;
 	GLuint uiVBO;
 	GLuint uiIBO;
 	Vertex* myShape;
+
+	//Initialize entire image with desired location, texture, size
+	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
+
+	//Initialize image selection with desired location, texture, size
+	void Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a);
+
+
 	QuadVert();
 	~QuadVert();
 };

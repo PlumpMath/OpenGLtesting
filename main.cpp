@@ -6,16 +6,19 @@
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 720
 
-KeyStater Keys;
+
 
 int main()
 {
-	//Initialise GLFW
+	//Initialise key manager
+	KeyStater Keys;
 
+	//Initialise GLFW
 	if (!glfwInit())
 	{
 		return -1;
 	}
+
 	//create a windowed mode window and it's OpenGL context
 	GLFWwindow* window;
 	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, ":ian:   :revolver: :honkman:", NULL, NULL);
@@ -37,34 +40,34 @@ int main()
 	}
 
 
-	//creating text and sprites
+	//creating text and sprites and UVs
 	FontDraw thirdtext("abcba", 500, 300);
 
 	float rb[4] =
 	{
-		.4, .4,
-		.45, .45
+		0.4, 0.4,
+		0.45, 0.45
 	};
 
 	BasicSprite Rainbow(800, 200, "rainbow.png", 64, 64, 4, rb);
 
-	float _a[4] =
+	float ca[4] =
 	{
 		15, 20,
 		24, 9
 	};
-	float _b[4] =
+	float cb[4] =
 	{
 		40, 75,
 		9, 14
 	};
-	float _c[4] =
+	float cc[4] =
 	{
 		113, 27,
 		20, 20
 	};
 
-	AnimSprite animsprite(100, 100, "animtest.png", 30, 30, 4, _a, _b, _c, 224, 149);
+	AnimSprite animsprite(100, 100, "animtest.png", 30, 30, 4, ca, cb, cc, 224, 149);
 
 	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
 	
@@ -83,7 +86,8 @@ int main()
 		glfwSetTime(0);
 		//Updating key handler
 		Keys.Update();
-		
+
+		//Basic input checks and movement
 		if (Keys.IsDown(VK_UP))
 		{
 			Ian.MoveSprite(0, 300, deltaTime);
@@ -121,8 +125,6 @@ int main()
 		if (Keys.IsPressed(VK_ESCAPE))
 			glfwSetWindowShouldClose(window, GL_TRUE);
 	}
-
-
 
 	glfwTerminate();
 	return 0;

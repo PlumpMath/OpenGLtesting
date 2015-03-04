@@ -29,7 +29,7 @@ void AnimSprite::CutUV()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void AnimSprite::Update(double time)
+void AnimSprite::Draw(double time)
 {
 	delay += time;
 	if (delay > .1)
@@ -51,11 +51,6 @@ void AnimSprite::Update(double time)
 			CutUV();
 		}
 	}
-}
-
-void AnimSprite::Draw(double time)
-{
-	Update(time);
 	sprite.Draw();
 }
 

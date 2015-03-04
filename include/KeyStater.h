@@ -1,7 +1,8 @@
 #ifndef KEYSTATER_H
 #define KEYSTATER_H
 
-#include <Windows.h>
+//windoze reliant right now
+#include <Windows.h>	
 //#include <GLFW\glfw3.h>
 
 #define VK_0 0x30

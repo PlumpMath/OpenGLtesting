@@ -10,10 +10,10 @@ public:
 	int curFrame;
 	double delay;
 	float frame[3][4];
-	//float x, float y, char* texture, int width, int height, int bpp, float* a
 
+	//called in update if frame is to change, changes the UVs to next frame
 	void CutUV();
-	void Update(double time);
+	//call this ever frame to update the
 	void Draw(double time);
 
 	AnimSprite();

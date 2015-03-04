@@ -1,5 +1,6 @@
 #include "include\KeyStater.h"
 
+//Initializing 
 KeyStater::KeyStater()
 {
 	GetKeyboardState(curStates);
@@ -16,6 +17,7 @@ KeyStater::~KeyStater()
 {
 }
 
+//Must be called every frame at the beginning of update loop
 void KeyStater::Update()
 {
 	for (int i = 0; i < 256; i++)
@@ -26,6 +28,8 @@ void KeyStater::Update()
 	GetCursorPos(&curs);
 	ScreenToClient(thiswindow, &curs);
 }
+
+//update and (to be implemented) draw debug data
 void KeyStater::Debug()
 {
 	if (IsPressed(VK_F5))
@@ -39,7 +43,7 @@ void KeyStater::Debug()
 			{
 				char keyhold[10];
 				_itoa_s(curStates[(i * 16) + a], keyhold, 10);
-				//DrawString(keyhold, i * 20, (a * 20) + 40, SColour(125, 125, 125, 255));				CREATE DRAWSTRING FUNC
+				//DrawString(keyhold, i * 20, (a * 20) + 40, SColour(125, 125, 125, 255));
 			}
 		}
 	}
@@ -51,24 +55,28 @@ bool KeyStater::IsUp(int key)
 		return true;
 	return false;
 }
+
 bool KeyStater::IsDown(int key)
 {
 	if (curStates[key] > 2 && oldStates[key] > 2)
 		return true;
 	return false;
 }
+
 bool KeyStater::IsToggledOn(int key)
 {
 	if (curStates[key] == 1)
 		return true;
 	return false;
 }
+
 bool KeyStater::IsPressed(int key)
 {
 	if (curStates[key] > 2 && oldStates[key] < 2)
 		return true;
 	return false;
 }
+
 bool KeyStater::IsReleased(int key)
 {
 	if (curStates[key] < 2 && oldStates[key] > 2)
