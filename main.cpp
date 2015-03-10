@@ -41,7 +41,7 @@ int main()
 
 
 	//creating text and sprites and UVs
-	FontDraw thirdtext("ERROR^ERR*$@BU7TS_AR//.NOW MONKIES", 300, 300);
+	FontDraw thirdtext("ERROR^ERR*$@HUMAN*AR#//.HARMFUL TO HUMAN$PURGE(&%#", 100, 300);
 
 	float rb[4] =
 	{
@@ -76,6 +76,7 @@ int main()
 	glEnable(GL_ALPHA_TEST);
 	glAlphaFunc(GL_GREATER, .5);
 	glEnable(GL_ALPHA);
+
 
 	//initializing time
 	glfwSetTime(0);
