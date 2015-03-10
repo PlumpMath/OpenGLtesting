@@ -15,68 +15,74 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyStater.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QuadVert.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FontDraw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="libs\glew-1.11.0\include\GL\glew.h">
+    <ClInclude Include="include\AnimSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BasicSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FontDraw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\KeyStater.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuadVert.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicSprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FontDraw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimSprite.h">
+    <ClInclude Include="include\QuadVert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FlatFragmentShader.glsl">
+    <ClCompile Include="source\AnimSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\BasicSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FontDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\KeyStater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuadVert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\animtest.png">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="TexturedFragmentShader.glsl">
+    </Image>
+    <Image Include="resources\defaultfont.png">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="VertexShader.glsl">
+    </Image>
+    <Image Include="resources\ian.png">
       <Filter>Resource Files</Filter>
-    </None>
+    </Image>
+    <Image Include="resources\rainbow - Copy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rainbow.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rainbow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="resources\defaultfont.fnt">
       <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\Ian.PNG">
+    <None Include="resources\FlatFragmentShader.glsl">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="textures\rainbow.png">
+    </None>
+    <None Include="resources\TexturedFragmentShader.glsl">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="animtest.png">
+    </None>
+    <None Include="resources\VertexShader.glsl">
       <Filter>Resource Files</Filter>
-    </Image>
+    </None>
   </ItemGroup>
 </Project>

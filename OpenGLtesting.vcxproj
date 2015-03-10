@@ -10,6 +10,35 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AnimSprite.h" />
+    <ClInclude Include="include\BasicSprite.h" />
+    <ClInclude Include="include\FontDraw.h" />
+    <ClInclude Include="include\KeyStater.h" />
+    <ClInclude Include="include\QuadVert.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\AnimSprite.cpp" />
+    <ClCompile Include="source\BasicSprite.cpp" />
+    <ClCompile Include="source\FontDraw.cpp" />
+    <ClCompile Include="source\KeyStater.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\QuadVert.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\animtest.png" />
+    <Image Include="resources\defaultfont.png" />
+    <Image Include="resources\ian.png" />
+    <Image Include="resources\rainbow - Copy.png" />
+    <Image Include="resources\rainbow.jpg" />
+    <Image Include="resources\rainbow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\defaultfont.fnt" />
+    <None Include="resources\FlatFragmentShader.glsl" />
+    <None Include="resources\TexturedFragmentShader.glsl" />
+    <None Include="resources\VertexShader.glsl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F1998C21-B1F7-4661-85E0-C193C9CC8DC1}</ProjectGuid>
     <RootNamespace>OpenGLtesting</RootNamespace>
@@ -70,33 +99,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="AnimSprite.cpp" />
-    <ClCompile Include="BasicSprite.cpp" />
-    <ClCompile Include="FontDraw.cpp" />
-    <ClCompile Include="KeyStater.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="QuadVert.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AnimSprite.h" />
-    <ClInclude Include="BasicSprite.h" />
-    <ClInclude Include="FontDraw.h" />
-    <ClInclude Include="include\KeyStater.h" />
-    <ClInclude Include="libs\glew-1.11.0\include\GL\glew.h" />
-    <ClInclude Include="QuadVert.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="FlatFragmentShader.glsl" />
-    <None Include="resources\defaultfont.fnt" />
-    <None Include="TexturedFragmentShader.glsl" />
-    <None Include="VertexShader.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="animtest.png" />
-    <Image Include="textures\Ian.PNG" />
-    <Image Include="textures\rainbow.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
