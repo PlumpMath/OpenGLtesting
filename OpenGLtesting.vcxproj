@@ -94,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="animtest.png" />
-    <Image Include="resources\defaultfont.png" />
     <Image Include="textures\Ian.PNG" />
     <Image Include="textures\rainbow.png" />
   </ItemGroup>

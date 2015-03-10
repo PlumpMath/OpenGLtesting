@@ -41,7 +41,7 @@ int main()
 
 
 	//creating text and sprites and UVs
-	FontDraw thirdtext("abcba", 500, 300);
+	FontDraw thirdtext("ERROR^ERR*$@BU7TS_AR//.NOW MONKIES", 300, 300);
 
 	float rb[4] =
 	{
