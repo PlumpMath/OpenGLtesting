@@ -67,7 +67,7 @@ int main()
 		20, 20
 	};
 
-	AnimSprite animsprite(100, 100, "animtest.png", 30, 30, 4, ca, cb, cc, 224, 149);
+	AnimSprite animsprite(100, 100, "animtest.png", 30, 30, 4, ca, cb, cc, 224, 149, 0.1);
 
 	BasicSprite Ian(500, 500, "Ian.PNG", 32, 32, 3);
 	

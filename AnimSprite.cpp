@@ -32,7 +32,7 @@ void AnimSprite::CutUV()
 void AnimSprite::Draw(double time)
 {
 	delay += time;
-	if (delay > .1)
+	if (delay > frameTime)
 	{
 		delay = 0;
 		if (curFrame == 0)
@@ -59,10 +59,11 @@ AnimSprite::AnimSprite()
 
 }
 
-AnimSprite::AnimSprite(float x, float y, char* texture, int width, int height, int bpp, float* a, float* b, float* c, int _w, int _h)
+AnimSprite::AnimSprite(float x, float y, char* texture, int width, int height, int bpp, float* a, float* b, float* c, int _w, int _h, double aframetime)
 {
 	curFrame = 0;
 	delay = 0;
+	frameTime = aframetime;
 	a = getOGL(a[0], a[1], a[2], a[3], _w, _h);
 	b = getOGL(b[0], b[1], b[2], b[3], _w, _h);
 	c = getOGL(c[0], c[1], c[2], c[3], _w, _h);

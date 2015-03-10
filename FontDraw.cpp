@@ -47,7 +47,7 @@ FontDraw::FontDraw(char *todraw, float ax, float ay)
 
 	FontSprites = new BasicSprite[strlen(textToDraw)];
 	
-	//OFFSETS STILL PLANNED TO BE ADDED
+	//OFFSETS STILL NEEDED
 	for (int i = 0; i < strlen(textToDraw); i++)
 	{
 		float tx = x;

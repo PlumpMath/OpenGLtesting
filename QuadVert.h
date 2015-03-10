@@ -23,19 +23,24 @@ unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 
 float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar);
 
-//256 BY 256 ONLY, used by default for fontsheet
+///256 BY 256 ONLY, used by default for fontsheet
 float* getOGL(float ax, float ay, float aw, float ah);
 
-//UPPER LEFT CORNER OF SELECTION IN RELATION TO UPPER LEFT CORNER OF IMAGE, X, Y, W, H, IMAGE W, IMAGE H
+///UPPER LEFT CORNER OF SELECTION IN RELATION TO UPPER LEFT CORNER OF IMAGE, X, Y, W, H, IMAGE W, IMAGE H
 float* getOGL(float ax, float ay, float aw, float ah, int iwidth, int iheight);
 
-//vertex struct to hold position, color, uv data
+///vertex struct to hold position, color, uv data
 struct Vertex
 {
+	//position to place texture
 	float fPositions[4];
-	float fColours[4];
+	///color data to apply to texture
+	float fColors[4];
+	///uv data to apply to texture
 	float fUVs[2];
 };
+
+///holds the quad data and does the vbo, ibo, handle stuff
 
 struct QuadVert
 {
@@ -49,10 +54,10 @@ public:
 	GLuint uiIBO;
 	Vertex* myShape;
 
-	//Initialize entire image with desired location, texture, size
+	///Initialize entire image with desired location, texture, size
 	void Initialize(float x, float y, char* texture, int width, int height, int bpp);
 
-	//Initialize image selection with desired location, texture, size
+	///Initialize image selection with desired location, texture, size
 	void Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a);
 
 

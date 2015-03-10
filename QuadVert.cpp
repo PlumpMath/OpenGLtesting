@@ -187,10 +187,10 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	{
 		myShape[i].fPositions[2] = 0.0f;
 		myShape[i].fPositions[3] = 1.0f;
-		myShape[i].fColours[0] = 1.0f;
-		myShape[i].fColours[1] = 1.0f;
-		myShape[i].fColours[2] = 1.0f;
-		myShape[i].fColours[3] = 1.0f;
+		myShape[i].fColors[0] = 1.0f;
+		myShape[i].fColors[1] = 1.0f;
+		myShape[i].fColors[2] = 1.0f;
+		myShape[i].fColors[3] = 1.0f;
 	}
 	//set up the UVs
 	myShape[0].fUVs[0] = 1.0f;	//X2
@@ -251,9 +251,6 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	uiProgramTextured = CreateProgram("VertexShader.glsl", "TexturedFragmentShader.glsl");
 	MatrixIDFlat = glGetUniformLocation(uiProgramTextured, "MVP");
 	orthographicProjection = getOrtho(0, 1024, 0, 720, 0, 100);
-
-
-	
 }
 
 void QuadVert::Initialize(float x, float y, char* texture, int width, int height, int bpp, float* a)
@@ -272,10 +269,10 @@ void QuadVert::Initialize(float x, float y, char* texture, int width, int height
 	{
 		myShape[i].fPositions[2] = 0.0f;
 		myShape[i].fPositions[3] = 1.0f;
-		myShape[i].fColours[0] = 1.0f;
-		myShape[i].fColours[1] = 1.0f;
-		myShape[i].fColours[2] = 1.0f;
-		myShape[i].fColours[3] = 1.0f;
+		myShape[i].fColors[0] = 1.0f;
+		myShape[i].fColors[1] = 1.0f;
+		myShape[i].fColors[2] = 1.0f;
+		myShape[i].fColors[3] = 1.0f;
 	}
 	//set up the UVs
 	myShape[0].fUVs[0] = a[2];	//X2

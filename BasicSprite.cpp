@@ -9,7 +9,7 @@ BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height,
 
 BasicSprite::BasicSprite()
 {
-
+	init = false;
 }
 
 BasicSprite::BasicSprite(float x, float y, char* texture, int width, int height, int bpp, float* a)

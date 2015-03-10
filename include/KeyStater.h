@@ -45,21 +45,30 @@
 class KeyStater
 {
 private:
-	
+	///data to store current and last keyboard state in
 	BYTE curStates[258], oldStates[256];
+	///if the debug states are shown
 	bool showDebug = false;
+	///getting current window, 
 	HWND thiswindow = GetForegroundWindow();
 public:
+	///data to store mouse pos in
 	POINT curs;
 	KeyStater();
 	~KeyStater();
+	///sets old states to current states and updates current states and sets current mouse pos
 	void Update();
+	///call this to enable the debug menu when F5 is pressed
 	void Debug();
-	void ToggleDebug();
+	///if passed key is in the up state
 	bool IsUp(int key);
+	///if passed key is in the down state
 	bool IsDown(int key);
+	///current toggle state of passed key
 	bool IsToggledOn(int key);
+	///if passed key was just pressed
 	bool IsPressed(int key);
+	///if passed key was just released
 	bool IsReleased(int key);
 };
 
