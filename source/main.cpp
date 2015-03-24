@@ -34,7 +34,7 @@ int main()
 
 	if (glewInit() != GLEW_OK)
 	{
-		// OpenGL didn't start-up! shutdown GLFW and return an error code
+		//OpenGL didn't start-up! shutdown GLFW and return an error code
 		glfwTerminate();
 		return -1;
 	}
